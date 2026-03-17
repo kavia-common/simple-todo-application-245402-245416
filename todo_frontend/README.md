@@ -1,82 +1,66 @@
-# Lightweight React Template for KAVIA
+# Todo Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This folder contains the React frontend application (Create React App). In the current repository state, the UI is a lightweight template that demonstrates a light/dark theme toggle and basic styling.
 
-## Features
+## Features (current)
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+The current implementation includes:
 
-## Getting Started
+- A light/dark theme toggle that sets the `data-theme` attribute on the document root.
+- A minimal responsive layout and theme variables implemented in `src/App.css`.
+- Standard Create React App scripts for running, testing, and building.
 
-In the project directory, you can run:
+## Local development
 
-### `npm start`
+1. Install dependencies:
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   ```bash
+   npm install
+   ```
 
-### `npm test`
+2. Run the app:
 
-Launches the test runner in interactive watch mode.
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+Then open `http://localhost:3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Configuration (environment variables)
 
-## Customization
+This frontend supports configuration via environment variables. The container defines the following variables (they are optional unless your deployment requires them):
 
-### Colors
+- `REACT_APP_API_BASE`: Base path/URL for API requests (if/when the frontend is wired to a backend).
+- `REACT_APP_BACKEND_URL`: Backend base URL (if used).
+- `REACT_APP_FRONTEND_URL`: Public frontend URL (if used in redirects or links).
+- `REACT_APP_WS_URL`: WebSocket URL (if used).
+- `REACT_APP_NODE_ENV`: Environment mode (commonly `development` or `production`).
+- `REACT_APP_NEXT_TELEMETRY_DISABLED`: Reserved; may be used in some hosting setups.
+- `REACT_APP_ENABLE_SOURCE_MAPS`: Control source map generation (commonly `true`/`false` depending on your build tooling).
+- `REACT_APP_PORT`: Port to run the dev server on (note that Create React App typically uses `PORT`; if you use `REACT_APP_PORT`, ensure your start command maps it appropriately).
+- `REACT_APP_TRUST_PROXY`: Reserved; may be used in some hosting setups.
+- `REACT_APP_LOG_LEVEL`: Reserved; may be used to control client-side logging.
+- `REACT_APP_HEALTHCHECK_PATH`: Reserved; may be used by hosting/health-check tooling.
+- `REACT_APP_FEATURE_FLAGS`: Reserved; may be used to enable/disable UI features.
+- `REACT_APP_EXPERIMENTS_ENABLED`: Reserved; may be used to enable experimental features.
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+To set variables locally, create a file named `.env` in this folder (`todo_frontend/.env`) and restart the dev server after changes.
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+## Available scripts
 
-### Components
+- `npm start`: Runs the app in development mode.
+- `npm test`: Launches the test runner.
+- `npm run build`: Builds the app for production.
+- `npm run eject`: Ejects Create React App configuration (irreversible).
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+## UI theming notes
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+The theme is controlled by a `data-theme` attribute on the root `<html>` element.
 
-## Learn More
+- Theme logic: `src/App.js`
+- Theme variables and styles: `src/App.css`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Learn more
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React documentation: https://reactjs.org/
+- Create React App documentation: https://create-react-app.dev/
